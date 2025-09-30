@@ -1,4 +1,18 @@
 # tip-docker
+# 🛠️ Flujo completo: instalar react-router-dom con pnpm y reconstruir
+## Paso 1: Instala pnpm en tu máquina local (solo para gestionar package.json)
+```bash
+# En tu terminal local (fuera de Docker)
+npm install -g pnpm
+```
+- Esto te permite usar pnpm para actualizar package.json y pnpm-lock.yaml.
+
+## Paso 2: Agrega la dependencia en tu máquina local
+```bash
+cd frontend
+pnpm add react-router-dom
+```
+
 # 🧹 Suponiendo que usas docker-compose.yml
 ## 1. Detener y eliminar contenedores, redes y volúmenes (opcional)
 ⚠️ Cuidado: si usas -v, se borrarán los volúmenes (pero en desarrollo frontend, normalmente no guardas datos importantes ahí).
