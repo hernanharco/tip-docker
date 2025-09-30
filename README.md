@@ -41,3 +41,48 @@ docker-compose build
 
 ✅ Asegúrate de que ya hayas actualizado tu package.json local con:
 
+## 3. Levantar todo de nuevo
+```bash
+docker-compose up
+```
+O en modo "detached" (fondo):
+```bash
+docker-compose up -d
+```
+
+# 🐳 Si NO usas docker-compose (solo docker)
+
+## 1. Detener y eliminar el contenedor
+```bash
+# Lista los contenedores
+docker ps -a
+
+# Detén el contenedor (reemplaza <nombre> o <id>)
+docker stop <nombre>
+
+# Elimínalo
+docker rm <nombre>
+```
+## 2. Eliminar la imagen antigua (opcional pero recomendado)
+```bash
+# Lista las imágenes
+docker images
+
+# Elimina la imagen (reemplaza <nombre-imagen>)
+docker rmi <nombre-imagen>
+```
+## 3. Reconstruir e iniciar
+```bash
+# Construir nueva imagen
+docker build -t mi-frontend ./frontend
+
+# Ejecutar
+docker run -p 5173:5173 -v ${PWD}/frontend:/app -v /app/node_modules mi-frontend
+```
+En Windows PowerShell, usa ${PWD} para la ruta actual. 
+
+
+
+
+
+
