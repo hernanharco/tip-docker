@@ -2,7 +2,9 @@ resconstruir la imagen del docker sin que haya cambios en las migraciones ni en 
 ```
 docker-compose up --build -d
 ```
-
+```
+docker compose up -d --force-recreate frontend
+```
 # tip-docker
 # 🛠️ Flujo completo: instalar react-router-dom con pnpm y reconstruir
 ## Paso 1: Instala pnpm en tu máquina local (solo para gestionar package.json)
