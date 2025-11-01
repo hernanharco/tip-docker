@@ -46,11 +46,11 @@ docker-compose build
 
 ✅ Asegúrate de que ya hayas actualizado tu package.json local con:
 
-## 3. Levantar todo de nuevo
+## 3. Levantar todo de nuevo o reiniciar las imagenes
 ```bash
 docker-compose up
 ```
-O en modo "detached" (fondo):
+O en modo "detached" (fondo): ***mas utilizado
 ```bash
 docker-compose up -d
 ```
