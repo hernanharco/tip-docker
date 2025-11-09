@@ -1,3 +1,19 @@
+
+# ➡️ Comando para Desarrollo
+Para ejecutar:
+```
+docker compose -f docker-compose.yml -f docker-compose.dev.yml up -d
+```
+# ➡️ Comando para Producción
+Para ejecutar (o construir primero y luego ejecutar):
+```
+# Opcional: Construir todas las imágenes de producción
+docker compose -f docker-compose.yml -f docker-compose.prod.yml build 
+
+# Ejecutar los contenedores en modo producción
+docker compose -f docker-compose.yml -f docker-compose.prod.yml up -d
+```
+
 resconstruir la imagen del docker sin que haya cambios en las migraciones ni en superusuario
 ```
 docker-compose up --build -d
