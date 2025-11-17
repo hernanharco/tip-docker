@@ -4,13 +4,15 @@ Este comando detiene, elimina el contenedor anterior, fuerza la reconstrucción 
 ```
 docker-compose up -d --build --force-recreate --no-cache frontend
 ```
-arte del comando	Propósito <br>
-docker-compose up -> Comando base para construir, (re)crear e iniciar los servicios. <br>
--d ->	Ejecuta los contenedores en modo detached (segundo plano). <br>
---build -> Fuerza la construcción de la imagen antes de iniciar. <br>
---force-recreate ->	Destruye el contenedor anterior y crea uno nuevo, incluso si no hubo cambios en la configuración. <br>
---no-cache ->	CLAVE: Ignora la caché existente para la imagen, forzando la ejecución de todos los pasos del Dockerfile (incluyendo la instalación de pnpm install con las nuevas dependencias de package.json). <br>
-frontend ->	Especifica que solo se aplique a este servicio. <br>
+| Parte del Comando      | Propósito                                                                                                       |
+|------------------------|-------------------------------------------------------------------------------------------------------------------|
+| `docker-compose up`    | Comando base para construir, (re)crear e iniciar los servicios.                                                   |
+| `-d`                   | Ejecuta los contenedores en modo *detached* (segundo plano).                                                      |
+| `--build`              | Fuerza la construcción de la imagen antes de iniciar.                                                             |
+| `--force-recreate`     | Destruye el contenedor anterior y crea uno nuevo, incluso si no hubo cambios en la configuración.                 |
+| `--no-cache`           | **Ignora la caché** existente para la imagen, forzando la ejecución de todos los pasos del Dockerfile (ideal para actualizar dependencias en `package.json`). |
+| `frontend`             | Especifica que el comando solo se aplique a este servicio.                                                        |
+
 
 ________
 
