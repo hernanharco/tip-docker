@@ -1,4 +1,46 @@
 
+# Opción 1: El Comando Todo-en-Uno (Recomendado)
+Este comando detiene, elimina el contenedor anterior, fuerza la reconstrucción completa de la imagen y levanta el nuevo contenedor del servicio frontend.
+```
+docker-compose up -d --build --force-recreate --no-cache frontend
+```
+arte del comando	Propósito
+docker-compose up -> Comando base para construir, (re)crear e iniciar los servicios.
+-d ->	Ejecuta los contenedores en modo detached (segundo plano).
+--build -> Fuerza la construcción de la imagen antes de iniciar.
+--force-recreate ->	Destruye el contenedor anterior y crea uno nuevo, incluso si no hubo cambios en la configuración.
+--no-cache ->	CLAVE: Ignora la caché existente para la imagen, forzando la ejecución de todos los pasos del Dockerfile (incluyendo la instalación de pnpm install con las nuevas dependencias de package.json).
+frontend ->	Especifica que solo se aplique a este servicio.
+
+________
+
+# Opción 2: Pasos Explícitos (Borrar Imagen Primero)
+Si deseas ser explícito y asegurarte de que la imagen local anterior ya no exista antes de la nueva compilación, puedes usar estos pasos:
+
+Paso 1: Detener y eliminar el Contenedor
+Detiene y elimina el contenedor asociado al servicio frontend.
+
+```
+docker-compose rm -s -f frontend
+```
+
+# Paso 2: Eliminar la Imagen Local Stale (Opcional, pero recomendado)
+Busca la imagen que fue construida para tu servicio y elimínala. El nombre de tu imagen sería probablemente frontend_harcoPortfolio_frontend o similar, pero es más seguro eliminarla por el nombre que Docker le da:
+
+
+-> Nota: La imagen se nombra generalmente con el nombre del directorio y el nombre del servicio.
+-> Usa este si sabes el nombre:
+```
+docker rmi frontend_harcoportfolio_frontend
+```
+
+# Paso 3: Reconstruir y Cargar el Servicio
+Reconstruye la imagen sin caché y levanta el servicio:
+
+```
+docker-compose up -d --build --no-cache frontend
+```
+___________
 # ➡️ Comando para Desarrollo
 Para ejecutar:
 ```
