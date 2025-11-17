@@ -1,4 +1,16 @@
 
+# Paso 1: Reconstruir la Imagen Forzando la Instalación
+Ejecuta este comando exactamente como está, para que el pnpm install se ejecute de nuevo dentro de la imagen:
+```
+docker-compose build --no-cache frontend
+```
+Verifica: Debes ver en la salida que el paso de RUN pnpm install se ejecuta y se toma su tiempo, en lugar de aparecer como CACHED.
+
+# Paso 2: Levantar el Contenedor con la Nueva Imagen
+Una vez que el build haya terminado con éxito, levanta el contenedor usando la imagen nueva:
+```
+docker-compose up -d --force-recreate frontend
+```
 # Opción 1: El Comando Todo-en-Uno (Recomendado)
 Este comando detiene, elimina el contenedor anterior, fuerza la reconstrucción completa de la imagen y levanta el nuevo contenedor del servicio frontend.
 ```
