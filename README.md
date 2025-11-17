@@ -2,7 +2,7 @@
 # Opción 1: El Comando Todo-en-Uno (Recomendado)
 Este comando detiene, elimina el contenedor anterior, fuerza la reconstrucción completa de la imagen y levanta el nuevo contenedor del servicio frontend.
 ```
-docker-compose up -d --build --force-recreate --no-cache frontend
+docker-compose up -d --build --force-recreate frontend
 ```
 | Parte del Comando      | Propósito                                                                                                       |
 |------------------------|-------------------------------------------------------------------------------------------------------------------|
